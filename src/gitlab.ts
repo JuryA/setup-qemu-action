@@ -19,7 +19,7 @@ console.log(run('docker version'));
 console.log(run('docker info'));
 
 console.log('Pulling binfmt Docker image');
-run(`docker pull ${image}`);
+console.log(run(`docker pull ${image}`));
 
 console.log('Image info');
 console.log(run(`docker image inspect ${image}`));
@@ -33,7 +33,7 @@ run(`docker run --rm --privileged ${image} --install ${platforms}`);
 console.log('Extracting available platforms');
 const res = run(`docker run --rm --privileged ${image}`);
 const platformsObj = JSON.parse(res.trim()) as Platforms;
-const available = platformsObj.supported.join(',');
+const available = platformsObj.available.join(',');
 console.log(`Available platforms: ${available}`);
 if (outputFile) {
   writeFileSync(outputFile, JSON.stringify({name: 'platforms', value: available}) + '\n');
