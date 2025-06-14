@@ -15,7 +15,7 @@ exec:
     - sh
     - -euc
     - |
-        apk add --no-cache nodejs npm yarn > /dev/null
+        apk add --no-cache nodejs > /dev/null
         node dist/gitlab/index.js
   env:
     IMAGE: ${{inputs.image}}
