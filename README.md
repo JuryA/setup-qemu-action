@@ -68,6 +68,16 @@ The following outputs are available:
 |---------------|---------|---------------------------------------|
 | `platforms`   | String  | Available platforms (comma separated) |
 
+### GitLab CI
+
+A sample `.gitlab-ci.yml` and `steps/setup_qemu.yml` are provided to run this repository in GitLab pipelines using [CI/CD Steps](https://docs.gitlab.com/ci/steps/). The job loads the step and installs QEMU.
+
+```yaml
+include:
+  - local: .gitlab-ci.yml
+```
+
+
 ## Contributing
 
 Want to contribute? Awesome! You can find information about contributing to
