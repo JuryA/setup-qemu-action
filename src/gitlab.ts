@@ -22,10 +22,10 @@ console.log('Pulling binfmt Docker image');
 run(`docker pull ${image}`);
 
 console.log('Image info');
-run(`docker image inspect ${image}`);
+console.log(run(`docker image inspect ${image}`));
 
 console.log('Binfmt version');
-run(`docker run --rm --privileged ${image} --version`);
+console.log(run(`docker run --rm --privileged ${image} --version`));
 
 console.log('Installing QEMU static binaries');
 run(`docker run --rm --privileged ${image} --install ${platforms}`);
