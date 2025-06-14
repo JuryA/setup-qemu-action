@@ -1,0 +1,22 @@
+spec:
+  inputs:
+    image:
+      type: string
+      default: docker.io/tonistiigi/binfmt:latest
+    platforms:
+      type: string
+      default: all
+  outputs:
+    platforms:
+      type: string
+---
+exec:
+  command:
+    - sh
+    - -euc
+    - |
+        apk add --no-cache nodejs npm yarn > /dev/null
+        node dist/gitlab/index.js
+  env:
+    IMAGE: ${{inputs.image}}
+    PLATFORMS: ${{inputs.platforms}}

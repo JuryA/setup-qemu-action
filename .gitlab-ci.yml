@@ -1,0 +1,13 @@
+stages:
+  - qemu
+
+setup_qemu:
+  stage: qemu
+  image: docker:stable
+  services:
+    - docker:dind
+  variables:
+    DOCKER_DRIVER: overlay2
+  run:
+    - name: setup_qemu
+      step: ./steps/setup_qemu.yml
